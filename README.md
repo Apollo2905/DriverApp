@@ -35,24 +35,8 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-
-### Настройка локального PostgreSQL
-```sh
-CREATE DATABASE driver;
-\password postgres
-```
-
-#### Накатывание миграций на БД
-```sh
-alembic upgrade heads || env/bin/alembic upgrade heads
-```
-#### Наполнение БД
-```sh
-fill_db development.ini
-```
-
 #### Запуск
 ```sh
-uvicorn main:app --reload
+python app/main.py
 ```
 </details>

@@ -3,3 +3,5 @@ Dockerfile
 driver.db
 __pycache__
 .python-version
+specification.txt
+1737.pdf

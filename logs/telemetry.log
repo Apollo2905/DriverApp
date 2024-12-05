@@ -1,0 +1,5 @@
+2024-12-05 19:59:33,148 Настройка тока: CH1:CURRENT 2.5
+2024-12-05 19:59:33,148 Отправка команды: CH1:CURRENT 2.5
+2024-12-05 20:01:47,029 Ошибка отправки команды 'CH1:CURRENT 2.5': [Errno 110] Connect call failed ('192.168.0.10', 5025)
+2024-12-05 20:11:34,491 Task was destroyed but it is pending!
+task: <Task pending name='Task-1' coro=<start_telemetry() running at /home/pshahsilo/home_app/DriverApp/app/main.py:20> cb=[<lambda>() at /home/pshahsilo/home_app/DriverApp/app/main.py:31]>
