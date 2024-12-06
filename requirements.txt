@@ -4,3 +4,5 @@ asyncio==3.4.3
 python-dotenv==1.0.1
 pydantic==2.10.3
 pydantic_core==2.27.1
+pytest==8.3.4
+flake8==7.1.1

@@ -39,4 +39,9 @@ pip install -r requirements.txt
 ```sh
 python app/main.py
 ```
+
+### Прогон через линтеры
+```sh
+flake8 .
+```
 </details>
