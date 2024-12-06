@@ -3,12 +3,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 class Settings:
 
     """Настройки подключения"""
-    SCPI_HOST: str = os.getenv("SCPI_HOST", "169.254.129.17") # IP блока питания
-    SCPI_PORT: int = int(os.getenv("SCPI_PORT", 5025)) # порт для SCPI-команд
-    API_PORT: int = int(os.getenv("API_PORT", 8000)) # Порт для REST API
+    SCPI_HOST: str = os.getenv("SCPI_HOST", "127.0.0.1")  # IP блока питания
+    SCPI_PORT: int = int(os.getenv("SCPI_PORT", 5025))  # порт для SCPI-команд
+    API_PORT: int = int(os.getenv("API_PORT", 8000))  # Порт для REST API
 
     """Характеристики устройства"""
     MAX_CHANNELS: int = 4
@@ -20,7 +21,7 @@ class Settings:
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
 
     """Интервал опроса телеметрии"""
-    TELEMETRY_INTERVAL: float = 5.0 
+    TELEMETRY_INTERVAL: float = 5.0
 
     """Разделитель команд SCPI"""
     SCPI_TERMINATOR: str = "\n"
@@ -34,6 +35,7 @@ class Settings:
 
     def create_log_folder(self):
         os.makedirs(os.path.dirname(self.LOG_FILE), exist_ok=True)
+
 
 settings = Settings()
 settings.create_log_folder()

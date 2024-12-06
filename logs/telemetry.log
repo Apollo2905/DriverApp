@@ -3,3 +3,50 @@
 2024-12-05 20:01:47,029 Ошибка отправки команды 'CH1:CURRENT 2.5': [Errno 110] Connect call failed ('192.168.0.10', 5025)
 2024-12-05 20:11:34,491 Task was destroyed but it is pending!
 task: <Task pending name='Task-1' coro=<start_telemetry() running at /home/pshahsilo/home_app/DriverApp/app/main.py:20> cb=[<lambda>() at /home/pshahsilo/home_app/DriverApp/app/main.py:31]>
+2024-12-05 20:23:05,628 Настройка тока: CH1:CURRENT 2.0
+2024-12-05 20:23:05,628 Отправка команды: CH1:CURRENT 2.0
+2024-12-05 20:24:51,734 Task was destroyed but it is pending!
+task: <Task pending name='Task-1' coro=<start_telemetry() running at /home/pshahsilo/home_app/DriverApp/app/main.py:20> cb=[<lambda>() at /home/pshahsilo/home_app/DriverApp/app/main.py:31]>
+2024-12-06 15:28:48,160 Выключение канала: 1
+2024-12-06 15:28:48,160 Отправка команды: CH1:STATE OFF
+2024-12-06 15:29:12,267 Отправка команды: CH2:MEASURE?
+2024-12-06 15:31:02,991 Ошибка отправки команды 'CH1:STATE OFF': [Errno 110] Connect call failed ('169.254.129.17', 5025)
+2024-12-06 15:31:27,567 Ошибка отправки команды 'CH2:MEASURE?': [Errno 110] Connect call failed ('169.254.129.17', 5025)
+2024-12-06 15:31:38,270 Настройка тока: CH1:CURRENT 1.0
+2024-12-06 15:31:38,270 Отправка команды: CH1:CURRENT 1.0
+2024-12-06 15:33:50,927 Ошибка отправки команды 'CH1:CURRENT 1.0': [Errno 110] Connect call failed ('169.254.129.17', 5025)
+2024-12-06 15:35:04,663 Task was destroyed but it is pending!
+task: <Task pending name='Task-1' coro=<start_telemetry() running at /home/pshahsilo/home_app/DriverApp/app/main.py:20> cb=[<lambda>() at /home/pshahsilo/home_app/DriverApp/app/main.py:31]>
+2024-12-06 16:38:44,533 Настройка тока: CH1:CURRENT 2.0
+2024-12-06 16:38:44,533 Отправка команды: CH1:CURRENT 2.0
+2024-12-06 16:39:49,475 Task was destroyed but it is pending!
+task: <Task pending name='Task-1' coro=<start_telemetry() running at /home/pshahsilo/home_app/DriverApp/app/main.py:20> cb=[<lambda>() at /home/pshahsilo/home_app/DriverApp/app/main.py:31]>
+2024-12-06 16:40:01,759 Настройка тока: CH1:CURRENT 2.0
+2024-12-06 16:40:01,760 Отправка команды: CH1:CURRENT 2.0
+2024-12-06 16:40:01,761 Получен ответ: Ток установлен на 2.0 для канала 1
+2024-12-06 16:40:01,761 Настройка напряжения: CH1:VOLTAGE 12.0
+2024-12-06 16:40:01,761 Отправка команды: CH1:VOLTAGE 12.0
+2024-12-06 16:40:01,762 Получен ответ: Напряжение установлено на 12.0 для канала 1
+2024-12-06 16:40:01,762 Включение канала: 1
+2024-12-06 16:40:01,762 Отправка команды: CH1:STATE ON
+2024-12-06 16:40:01,762 Получен ответ: Канал 1 включен
+2024-12-06 16:40:43,715 Выключение канала: 1
+2024-12-06 16:40:43,715 Отправка команды: CH1:STATE OFF
+2024-12-06 16:40:43,716 Получен ответ: Канал 1 выключен
+2024-12-06 16:41:17,446 Отправка команды: CH1:MEASURE?
+2024-12-06 16:41:17,449 Получен ответ: 
+2024-12-06 16:41:17,449 Измерение состояния канала 1: 
+2024-12-06 16:42:17,229 Отправка команды: CH2:MEASURE?
+2024-12-06 16:42:17,231 Получен ответ: 
+2024-12-06 16:42:17,231 Измерение состояния канала 2: 
+2024-12-06 16:43:22,303 Task was destroyed but it is pending!
+task: <Task pending name='Task-1' coro=<start_telemetry() running at /home/pshahsilo/home_app/DriverApp/app/main.py:20> cb=[<lambda>() at /home/pshahsilo/home_app/DriverApp/app/main.py:31]>
+2024-12-06 17:14:54,091 Настройка тока: CH1:CURRENT 1.0
+2024-12-06 17:14:54,091 Отправка команды: CH1:CURRENT 1.0
+2024-12-06 17:14:54,093 Получен ответ: Ток установлен на 1.0 для канала 1
+2024-12-06 17:14:54,093 Настройка напряжения: CH1:VOLTAGE 12.0
+2024-12-06 17:14:54,093 Отправка команды: CH1:VOLTAGE 12.0
+2024-12-06 17:14:54,094 Получен ответ: Напряжение установлено на 12.0 для канала 1
+2024-12-06 17:14:54,094 Включение канала: 1
+2024-12-06 17:14:54,094 Отправка команды: CH1:STATE ON
+2024-12-06 17:14:54,095 Получен ответ: Канал 1 включен
