@@ -10,6 +10,21 @@ import logging
 
 load_dotenv()
 
+# # Логгер для телеметрии
+# telemetry_logging = logging.getLogger("telemetry")
+# telemetry_logging.setLevel(logging.INFO)
+# telemetry_handler = logging.FileHandler(settings.LOG_FILE_TELEMETRY)
+# telemetry_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+# telemetry_logging.addHandler(telemetry_handler)
+
+# # Логгер для команд
+# command_logging = logging.getLogger("command")
+# command_logging.setLevel(logging.INFO)
+# command_handler = logging.FileHandler(settings.LOG_FILE_COMMAND)
+# command_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+# command_logging.addHandler(command_handler)
+
+# Основной логгер для общего логирования
 logging.basicConfig(
     filename=settings.LOG_FILE,
     level=getattr(logging, settings.LOG_LEVEL.upper(), logging.INFO),
@@ -29,11 +44,18 @@ async def start_telemetry():
     except Exception as e:
         logging.error(f"Логирование телеметрии завершилось с ошибкой: {e}")
 
+async def main():
+    """
+    Основная точка запуска приложения. Одновременно запускает сервер и задачу телеметрии.
+    """
+    # Создаем задачу для телеметрии
+    asyncio.create_task(start_telemetry())
+
+    # Запускаем сервер Uvicorn
+    config = uvicorn.Config(app, host="0.0.0.0", port=settings.API_PORT, log_level="info")
+    server = uvicorn.Server(config)
+    await server.serve()
+
+
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    telemetry_task = loop.create_task(start_telemetry())
-    telemetry_task.add_done_callback(
-        lambda task: logging.error(f"Задача телеметрии завершилась с ошибкой: {task.exception()}")
-        if task.exception() else logging.info("Задача телеметрии успешно выполнена")
-    )
-    uvicorn.run(app, host="0.0.0.0", port=settings.API_PORT)
+    asyncio.run(main())

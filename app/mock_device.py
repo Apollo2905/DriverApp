@@ -17,7 +17,7 @@ class MockDeviceServer:
 
     async def handle_client(self, reader, writer):
         while True:
-            data = await reader.read(1024)
+            data = await reader.read(4096)
             if not data:
                 break
             command = data.decode().strip()

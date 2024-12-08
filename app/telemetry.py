@@ -30,7 +30,7 @@ class TelemetryLogger:
                 logging.info(f"Телеметрия на {timestamp}: {telemetry}")
             except Exception as e:
                 logging.error(f"Ошибка логирования телеметрии: {e}")
-            await asyncio.sleep(1)
+            await asyncio.sleep(settings.TELEMETRY_INTERVAL)
 
             if iterations is not None:
                 count += 1

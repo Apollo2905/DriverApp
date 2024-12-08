@@ -44,3 +44,29 @@ class PowerSupplyDriver:
         response = await self.client.send_command(command)
         logging.info(f"Измерение состояния канала {channel}: {response}")
         return response
+    
+
+    async def get_telemetry(self):
+        """
+        Получает телеметрию по всем каналам.
+        Возвращает словарь с данными.
+        """
+        telemetry_data = {}
+        for channel in range(1, settings.MAX_CHANNELS + 1):
+            try:
+                command = settings.COMMAND_MEASURE.format(channel=channel)
+                response = await self.client.send_command(command)
+
+                parts = response.split(",")
+                if len(parts) != 3:
+                    raise ValueError(f"Некорректный формат ответа: {response}")
+
+                telemetry_data[channel] = {
+                    "Напряжение": float(parts[0].strip().split()[0]),
+                    "Ток": float(parts[1].strip().split()[0]),
+                    "Мощность": float(parts[0].strip().split()[0]) * float(parts[1].strip().split()[0]),
+                    "Состояние": parts[2].strip(),
+                }
+            except Exception as e:
+                raise ValueError(f"Ошибка получения данных для канала {channel}: {e}")
+        return telemetry_data
