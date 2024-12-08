@@ -18,10 +18,11 @@ class Settings:
 
     """Настройки логирования"""
     LOG_FILE: str = os.getenv("LOG_FILE", "app/logs/telemetry.log")
+    # LOG_FILE_COMMAND: str = os.getenv("LOG_FILE_COMMAND", "app/logs/request_response.log")
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
 
     """Интервал опроса телеметрии"""
-    TELEMETRY_INTERVAL: float = 5.0
+    TELEMETRY_INTERVAL: float = 15.0
 
     """Разделитель команд SCPI"""
     SCPI_TERMINATOR: str = "\n"
@@ -34,6 +35,7 @@ class Settings:
     COMMAND_MEASURE: str = "CH{channel}:MEASURE?"
 
     def create_log_folder(self):
+        # os.makedirs(os.path.dirname(self.LOG_FILE_COMMAND), exist_ok=True)
         os.makedirs(os.path.dirname(self.LOG_FILE), exist_ok=True)
 
 

@@ -10,7 +10,7 @@ class SCPIClient:
 
     async def send_command(self, command: str) -> str:
         try:
-            logging.info(f"Отправка команды: {command}")
+            # logging.info(f"Отправка команды: {command}")
             reader, writer = await asyncio.open_connection(self.host, self.port)
             writer.write(f"{command}\n".encode())
             await writer.drain()
