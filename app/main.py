@@ -44,6 +44,7 @@ async def start_telemetry():
     except Exception as e:
         logging.error(f"Логирование телеметрии завершилось с ошибкой: {e}")
 
+
 async def main():
     """
     Основная точка запуска приложения. Одновременно запускает сервер и задачу телеметрии.

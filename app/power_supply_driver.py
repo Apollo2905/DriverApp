@@ -44,7 +44,6 @@ class PowerSupplyDriver:
         response = await self.client.send_command(command)
         logging.info(f"Измерение состояния канала {channel}: {response}")
         return response
-    
 
     async def get_telemetry(self):
         """
