@@ -17,7 +17,7 @@ class Settings:
     MAX_CURRENT: dict = {1: 3.0, 2: 3.0, 3: 1.0, 4: 1.0}
 
     """Настройки логирования"""
-    LOG_FILE: str = os.getenv("LOG_FILE", "logs/telemetry.log")
+    LOG_FILE: str = os.getenv("LOG_FILE", "app/logs/telemetry.log")
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
 
     """Интервал опроса телеметрии"""

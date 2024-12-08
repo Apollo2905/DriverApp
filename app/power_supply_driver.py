@@ -1,6 +1,6 @@
-from scpi_client import SCPIClient
+from app.scpi_client import SCPIClient
 import logging
-from config.settings import settings
+from app.config.settings import settings
 
 
 class PowerSupplyDriver:

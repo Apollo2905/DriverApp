@@ -4,3 +4,5 @@ __pycache__
 .python-version
 specification.txt
 1737.pdf
+.pytest_cache
+test_telemetry_debug.py

@@ -1,11 +1,14 @@
 import asyncio
-from api import app
-from telemetry import TelemetryLogger
-from power_supply_driver import PowerSupplyDriver
-from scpi_client import SCPIClient
-from config.settings import settings
+from app.api import app
+from app.telemetry import TelemetryLogger
+from app.power_supply_driver import PowerSupplyDriver
+from app.scpi_client import SCPIClient
+from app.config.settings import settings
+from dotenv import load_dotenv
 import uvicorn
 import logging
+
+load_dotenv()
 
 logging.basicConfig(
     filename=settings.LOG_FILE,
@@ -20,6 +23,7 @@ telemetry_logger = TelemetryLogger(driver)
 
 async def start_telemetry():
     try:
+        logging.info("Начало логирования телеметрии")
         print("Начало логирования телеметрии...")
         await telemetry_logger.log_telemetry()
     except Exception as e:

@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python", "app/main.py"]
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mock_device
+
+  mock_device:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python", "app/mock_device.py"]
+    ports:
+      - "5025:5025"
