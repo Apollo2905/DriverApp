@@ -1,8 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, field_validator
-from scpi_client import SCPIClient
-from power_supply_driver import PowerSupplyDriver
-from config.settings import settings
+from app.scpi_client import SCPIClient
+from app.power_supply_driver import PowerSupplyDriver
+from app.config.settings import settings
 import logging
 
 app = FastAPI()

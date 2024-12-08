@@ -35,13 +35,19 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-#### Запуск
-```sh
-python app/main.py
-```
-
-### Прогон через линтеры
+### Прогон через линтеры и запуск тестов
 ```sh
 flake8 .
+pytest tests/
+```
+
+#### Запуск
+```sh
+python run.py
+```
+
+### Запустить команду из корневой директории, если появляются ошибки с отсутствием модуля
+```sh
+export PYTHONPATH=$(pwd)
 ```
 </details>
