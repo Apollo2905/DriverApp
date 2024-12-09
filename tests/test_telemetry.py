@@ -1,5 +1,5 @@
 import pytest
-from unittest.mock import AsyncMock, patch
+from unittest.mock import AsyncMock, MagicMock
 from app.telemetry import TelemetryLogger
 
 
@@ -17,8 +17,10 @@ def mock_driver():
 
 @pytest.mark.asyncio
 async def test_log_telemetry(mock_driver):
-    with patch("app.telemetry.logging.info") as mock_logging:
-        telemetry_logger = TelemetryLogger(mock_driver)
-        await telemetry_logger.log_telemetry(iterations=5)
-        mock_driver.get_telemetry.call_count == 5
-        assert mock_logging.call_count >= 5  # Проверка вызова логгирования для всех каналов
+    # Создаем мок для логгера
+    mock_logger = MagicMock()
+    telemetry_logger = TelemetryLogger(mock_driver, mock_logger)
+    await telemetry_logger.log_telemetry(iterations=5)
+    assert mock_driver.get_telemetry.call_count == 5
+    # Проверяем, что mock_logger.info вызвался как минимум 5 раз
+    assert mock_logger.info.call_count >= 5

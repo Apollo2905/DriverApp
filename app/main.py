@@ -33,11 +33,11 @@ telemetry_logger = TelemetryLogger(driver, telemetry_logging)
 
 async def start_telemetry():
     try:
-        logging.info("Начало логирования телеметрии")
+        telemetry_logging.info("Начало логирования телеметрии")
         print("Начало логирования телеметрии...")
         await telemetry_logger.log_telemetry()
     except Exception as e:
-        logging.error(f"Логирование телеметрии завершилось с ошибкой: {e}")
+        telemetry_logging.error(f"Логирование телеметрии завершилось с ошибкой: {e}")
 
 
 async def main():

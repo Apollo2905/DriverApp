@@ -1,5 +1,4 @@
 import asyncio
-from datetime import datetime
 from app.power_supply_driver import PowerSupplyDriver
 from app.config.settings import settings
 
@@ -24,7 +23,6 @@ class TelemetryLogger:
         while self._running:
             try:
                 telemetry = await self.driver.get_telemetry()
-                timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 self.logger.info(f"Телеметрия: {telemetry}")
             except Exception as e:
                 self.logger.error(f"Ошибка логирования телеметрии: {e}")
