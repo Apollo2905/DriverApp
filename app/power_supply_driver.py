@@ -10,7 +10,9 @@ class PowerSupplyDriver:
     async def set_current(self, channel: int, current: float):
         max_current = settings.MAX_CURRENT.get(channel, 3.0)  # Получаем максимальный ток для канала
         if not (0 <= current <= max_current):
-            raise ValueError(f"Ток {current} А выходит за пределы (0-{max_current} А) для канала {channel}")
+            error_message = f"Ток {current} А выходит за пределы (0-{max_current} А) для канала {channel}"
+            logging.error(error_message)
+            raise ValueError(error_message)
         command = settings.COMMAND_SET_CURRENT.format(channel=channel, value=current)
         logging.info(f"Настройка тока: {command}")
         return await self.client.send_command(command)

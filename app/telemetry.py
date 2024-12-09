@@ -1,19 +1,17 @@
 import asyncio
-import logging
 from datetime import datetime
 from app.power_supply_driver import PowerSupplyDriver
 from app.config.settings import settings
 
-logging.basicConfig(
-    filename=settings.LOG_FILE,
-    level=logging.INFO,
-    format="%(asctime)s %(message)s"
-)
-
 
 class TelemetryLogger:
-    def __init__(self, driver: PowerSupplyDriver):
+    def __init__(self, driver: PowerSupplyDriver, logger):
+        """
+        :param driver: экземпляр драйвера блока питания
+        :param logger: логгер для записи телеметрии
+        """
         self.driver = driver
+        self.logger = logger
         self._running = False  # Флаг для управления циклом
 
     async def log_telemetry(self, iterations: int = None):
@@ -27,9 +25,9 @@ class TelemetryLogger:
             try:
                 telemetry = await self.driver.get_telemetry()
                 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                logging.info(f"Телеметрия на {timestamp}: {telemetry}")
+                self.logger.info(f"Телеметрия: {telemetry}")
             except Exception as e:
-                logging.error(f"Ошибка логирования телеметрии: {e}")
+                self.logger.error(f"Ошибка логирования телеметрии: {e}")
             await asyncio.sleep(settings.TELEMETRY_INTERVAL)
 
             if iterations is not None:
